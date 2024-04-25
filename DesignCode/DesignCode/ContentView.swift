@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isTapped = false
+    
+    
     var body: some View {
         ZStack {
             Image(.image1)
@@ -53,8 +56,10 @@ struct ContentView: View {
                 HStack {
                     HStack {
                         Image(systemName: "ellipsis")
+                            .symbolEffect(.pulse)
                         Divider()
                         Image(systemName: "sparkle.magnifyingglass")
+                            .symbolEffect(.scale.up)
                         Divider()
                         Image(systemName: "face.smiling")
                     }
@@ -88,6 +93,32 @@ struct ContentView: View {
             .cornerRadius(/*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/)
             .padding(20)
             .offset(y: 80)
+            
+            HStack(spacing: 30) {
+                Image(systemName: "wand.and.rays")
+                    .frame(width: 44)
+                    .symbolEffect(.variableColor.iterative.reversing, options: .speed(3))
+                    .symbolEffect(.bounce, value: isTapped)
+                Image(systemName:  isTapped ? "pause.fill" : "play.fill")
+                    .frame(width: 44)
+                    .contentTransition(.symbolEffect(.replace))
+                    .onTapGesture {
+                        isTapped.toggle()
+                    }
+                Image(systemName: "bell.and.waves.left.and.right.fill")
+                    .frame(width: 44)
+                    .symbolEffect(.bounce, options: .speed(3).repeat(3), value: isTapped)
+            }
+            .foregroundStyle(.primary, .white)
+            .font(.largeTitle)
+            .padding(20)
+            .background(.ultraThinMaterial)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .strokeBorder(linearGradient)
+            )
+            .cornerRadius(20)
+            .offset(y: -44)
         }
         .frame(maxWidth: 400)
         .padding(20)
