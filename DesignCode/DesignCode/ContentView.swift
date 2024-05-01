@@ -20,6 +20,9 @@ struct ContentView: View {
     @State var hasNoise = false
     @State var hasEmboss = false
     @State var isPixellated = false
+    @State var number: Float = 0
+    @State var isIncrementing = true
+    let numberTimer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     
     struct AnimationValues {
         var position = CGPoint(x: 0, y: 0)
@@ -69,9 +72,13 @@ struct ContentView: View {
                             .blendMode(.overlay)
                             .opacity(hasNoise ? 1 : 0)
                     )
-                    .layerEffect(ShaderLibrary.emboss(.float(1)), maxSampleOffset: .zero, isEnabled: hasEmboss)
-                    .layerEffect(ShaderLibrary.pixellate(.float(10)), maxSampleOffset: .zero, isEnabled: isPixellated)
-                    
+                    .layerEffect(ShaderLibrary.emboss(.float(number)), maxSampleOffset: .zero, isEnabled: hasEmboss)
+                    .layerEffect(ShaderLibrary.pixellate(.float(number)), maxSampleOffset: .zero, isEnabled: isPixellated)
+                    .onReceive(numberTimer, perform: { _ in
+                        number += isIncrementing ? 0.5 : -0.5
+                        if number >= 10 { isIncrementing = false }
+                        if number <= 0 { isIncrementing = true }
+                    })
                     .cornerRadius(isTapped ? 0 : 20)
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
@@ -113,7 +120,8 @@ struct ContentView: View {
             
             content
                 .padding(20.0)
-                .background(.regularMaterial)
+                .background(hasSimpleWave || hasComplexWave ?
+                            AnyView(Color(.secondarySystemBackground)) : AnyView(Color.clear.background(.regularMaterial)))
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
                         .strokeBorder(linearGradient)
@@ -133,15 +141,18 @@ struct ContentView: View {
             
             play
                 .frame(width: isTapped ? 220 : 50)
-                .foregroundStyle(ShaderLibrary.angledFill(
-                    .float(10),
-                    .float(10),
-                    .color(.blue)
-                ))
+                .if(hasPattern, transform: { view in
+                    view.foregroundStyle(ShaderLibrary.angledFill(
+                        .float(10),
+                        .float(10),
+                        .color(.blue)
+                    ))
+                })
                 .foregroundStyle(.primary, .white)
                 .font(.largeTitle)
                 .padding(20)
-                .background(.ultraThinMaterial)
+                .background(hasSimpleWave ?
+                            AnyView(Color(.secondarySystemBackground)) : AnyView(Color.clear.background(.ultraThinMaterial)))
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
                         .strokeBorder(linearGradient)

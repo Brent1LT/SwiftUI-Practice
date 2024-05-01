@@ -13,6 +13,7 @@
 		7679D4D22BBF47450024064C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7679D4D12BBF47450024064C /* Preview Assets.xcassets */; };
 		7679D4D92BDC53FF0024064C /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 7679D4D82BDC53FF0024064C /* Shaders.metal */; };
 		7679D4DB2BDC55B20024064C /* example-swiftui-shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 7679D4DA2BDC55B20024064C /* example-swiftui-shaders.metal */; };
+		7679D4DD2BE2EE490024064C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7679D4DC2BE2EE490024064C /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		7679D4D12BBF47450024064C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7679D4D82BDC53FF0024064C /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		7679D4DA2BDC55B20024064C /* example-swiftui-shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = "example-swiftui-shaders.metal"; sourceTree = "<group>"; };
+		7679D4DC2BE2EE490024064C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				7679D4CA2BBF47440024064C /* DesignCodeApp.swift */,
 				7679D4CC2BBF47440024064C /* ContentView.swift */,
+				7679D4DC2BE2EE490024064C /* Extensions.swift */,
 				7679D4D82BDC53FF0024064C /* Shaders.metal */,
 				7679D4DA2BDC55B20024064C /* example-swiftui-shaders.metal */,
 				7679D4CE2BBF47450024064C /* Assets.xcassets */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7679D4DD2BE2EE490024064C /* Extensions.swift in Sources */,
 				7679D4D92BDC53FF0024064C /* Shaders.metal in Sources */,
 				7679D4DB2BDC55B20024064C /* example-swiftui-shaders.metal in Sources */,
 				7679D4CD2BBF47440024064C /* ContentView.swift in Sources */,
