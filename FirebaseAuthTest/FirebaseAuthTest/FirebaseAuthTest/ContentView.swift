@@ -16,7 +16,7 @@ struct ContentView: View {
         VStack {
             TextField("Email", text: $email)
             SecureField("Password", text: $password)
-            Button(action: { }) {
+            Button(action: { login()}) {
                 Text("Sign in")
             }
         }
