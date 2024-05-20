@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		768C537E2BFBF9A800174EC8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 768C537D2BFBF9A800174EC8 /* FirebaseFirestore */; };
+		768C53802BFBF9CC00174EC8 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768C537F2BFBF9CC00174EC8 /* FirestoreManager.swift */; };
 		76FA94E32BED7F6F0071E5C3 /* FirebaseAuthTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FA94E22BED7F6F0071E5C3 /* FirebaseAuthTestApp.swift */; };
 		76FA94E52BED7F6F0071E5C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FA94E42BED7F6F0071E5C3 /* ContentView.swift */; };
 		76FA94E72BED7F720071E5C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76FA94E62BED7F720071E5C3 /* Assets.xcassets */; };
@@ -16,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		768C537F2BFBF9CC00174EC8 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		76FA94DF2BED7F6F0071E5C3 /* FirebaseAuthTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseAuthTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FA94E22BED7F6F0071E5C3 /* FirebaseAuthTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthTestApp.swift; sourceTree = "<group>"; };
 		76FA94E42BED7F6F0071E5C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -30,17 +33,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				76FA94F42BED83010071E5C3 /* FirebaseAuth in Frameworks */,
+				768C537E2BFBF9A800174EC8 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		768C537C2BFBF9A800174EC8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		76FA94D62BED7F6F0071E5C3 = {
 			isa = PBXGroup;
 			children = (
 				76FA94E12BED7F6F0071E5C3 /* FirebaseAuthTest */,
 				76FA94E02BED7F6F0071E5C3 /* Products */,
+				768C537C2BFBF9A800174EC8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,6 +69,7 @@
 			children = (
 				76FA94E22BED7F6F0071E5C3 /* FirebaseAuthTestApp.swift */,
 				76FA94E42BED7F6F0071E5C3 /* ContentView.swift */,
+				768C537F2BFBF9CC00174EC8 /* FirestoreManager.swift */,
 				76FA94E62BED7F720071E5C3 /* Assets.xcassets */,
 				76FA94F02BED82340071E5C3 /* GoogleService-Info.plist */,
 				76FA94E82BED7F720071E5C3 /* Preview Content */,
@@ -90,6 +103,7 @@
 			name = FirebaseAuthTest;
 			packageProductDependencies = (
 				76FA94F32BED83010071E5C3 /* FirebaseAuth */,
+				768C537D2BFBF9A800174EC8 /* FirebaseFirestore */,
 			);
 			productName = FirebaseAuthTest;
 			productReference = 76FA94DF2BED7F6F0071E5C3 /* FirebaseAuthTest.app */;
@@ -150,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76FA94E52BED7F6F0071E5C3 /* ContentView.swift in Sources */,
+				768C53802BFBF9CC00174EC8 /* FirestoreManager.swift in Sources */,
 				76FA94E32BED7F6F0071E5C3 /* FirebaseAuthTestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +384,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		768C537D2BFBF9A800174EC8 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76FA94F22BED83010071E5C3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		76FA94F32BED83010071E5C3 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 76FA94F22BED83010071E5C3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

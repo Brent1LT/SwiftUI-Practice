@@ -10,12 +10,14 @@ import Firebase
 
 @main
 struct FirebaseAuthTestApp: App {
+    @StateObject var firestoreManager = FirestoreManager()
+    
     init() {
         FirebaseApp.configure()
     }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(firestoreManager)
         }
     }
 }

@@ -9,11 +9,13 @@ import SwiftUI
 import Firebase
 
 struct ContentView: View {
+    @EnvironmentObject var firestoreManager: FirestoreManager
     @State var email = ""
     @State var password = ""
     
     var body: some View {
         VStack {
+            Text("My Restaurant: \(firestoreManager.restaurant)")
             TextField("Email", text: $email)
             SecureField("Password", text: $password)
             Button(action: { login()}) {
@@ -35,5 +37,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView().environmentObject(FirestoreManager())
 }
