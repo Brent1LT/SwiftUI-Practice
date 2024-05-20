@@ -53,4 +53,32 @@ class FirestoreManager: ObservableObject {
             
         }
     }
+    
+    func createRestaurant(restaurantName: String) {
+        let db = Firestore.firestore()
+        
+        let docRef = db.collection("Restaurants").document(restaurantName)
+        
+        docRef.setData(["name": restaurantName]) { error in
+            if let error = error {
+                print("Error writing document: \(error)")
+            } else {
+                print("Document successfully written")
+            }
+        }
+    }
+    
+    func updateRestaurant(restaurantName: String, restuarantAddress: String) {
+        let db = Firestore.firestore()
+        
+        let docRef = db.collection("Restaurants").document(restaurantName)
+        
+        docRef.setData(["address": restuarantAddress], merge: true) { error in
+            if let error = error {
+                print("Error updating document: \(error)")
+            } else {
+                print("Document successfully updated!")
+            }
+        }
+    }
 }

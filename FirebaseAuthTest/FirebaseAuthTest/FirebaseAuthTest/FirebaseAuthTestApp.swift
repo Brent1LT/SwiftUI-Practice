@@ -15,9 +15,11 @@ struct FirebaseAuthTestApp: App {
     init() {
         FirebaseApp.configure()
     }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(firestoreManager)
+//            ContentView().environmentObject(firestoreManager)
+            AddRestaurant().environmentObject(firestoreManager)
         }
     }
 }
